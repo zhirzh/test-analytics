@@ -2,14 +2,14 @@
   <h1>TEST</h1>
 
   <script>
-    function load(tagId) {
-      if (!tagId) {
-        return [
-          ["AW-11335564912", "GT-K4C578Q"],
-          ["G-V7RGQBMB9M", "GT-WVXJJZK"],
-        ];
-      }
+    function tags() {
+      return [
+        ["AW-11335564912", "GT-K4C578Q"],
+        ["G-V7RGQBMB9M", "GT-WVXJJZK"],
+      ];
+    }
 
+    function load(tagId) {
       window.tagId = tagId;
 
       const script = document.createElement("script");
@@ -36,9 +36,9 @@
     function user(enhanced = false) {
       const data = {
         email: "test@email.com",
+        phone_number: "+910000099999",
         first_name: "test first name",
         last_name: "testnamelast",
-        phone_number: "+910000099999",
       };
 
       if (enhanced) {
@@ -56,6 +56,10 @@
       gtag("event", "conversion", {
         send_to: `${tagId}/LRZ3CPCQn-EYEPD8m50q`,
       });
+    }
+
+    function new_lead() {
+      gtag("event", "new_lead");
     }
   </script>
 </body>
