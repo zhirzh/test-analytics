@@ -1,7 +1,35 @@
+<h1>gtm / gt / data</h1>
+
+<ul>
+  <li>
+    <a href="./aw">test AW</a>
+  </li>
+  <li>
+    <a href="./aw-gt">test AW GT</a>
+  </li>
+  <li>
+    <a href="./test">test</a>
+  </li>
+</ul>
+
+<!-- Google Tag Manager -->
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-KVT5WXKX");
+</script>
+
 <!-- Google tag (gtag.js) -->
 <script
   async
-  src="https://www.googletagmanager.com/gtag/js?id=AW-11328585178"
+  src="https://www.googletagmanager.com/gtag/js?id=GTM-KVT5WXKX"
 ></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -10,15 +38,43 @@
   }
   gtag("js", new Date());
 
-  gtag("config", "AW-11328585178");
+  // gtag("config", "AW-11335564912");
+  gtag("config", "GT-K4C578Q");
+  // gtag("config", "G-V7RGQBMB9M");
+  gtag("config", "GT-WVXJJZK");
 </script>
 
-<!-- Event snippet for pur test conversion page -->
+<!-- Event snippet for test-aw-gtag conversion page -->
 <script>
-  gtag("event", "conversion", {
-    send_to: "AW-11328585178/Q2jOCOiu7-AYENr78Zkq",
-    value: 1.0,
-    currency: "INR",
-    transaction_id: "",
-  });
+  const t = 1000;
+
+  let ctr = 1;
+
+  setTimeout(() => {
+    gtag("set", "lead_data", {
+      email: "test@mail.com",
+      phone_number: "+919876543210",
+      first_name: "test first name",
+    });
+  }, ctr++ * t);
+
+  setTimeout(() => {
+    window.enhanced_conversion_data = {
+      email: "enhanced.test@mail.com",
+      phone_number: "+910123456789",
+      first_name: "enhanced test first name",
+    };
+  }, ctr++ * t);
+
+  // setTimeout(() => {
+  //   gtag("event", "conversion", {
+  //     send_to: "AW-11335564912/LRZ3CPCQn-EYEPD8m50q",
+  //     // value: 1.0,
+  //     // currency: "INR",
+  //   });
+  // }, ctr++ * t);
+
+  setTimeout(() => {
+    console.log("DONE");
+  }, ctr * t);
 </script>

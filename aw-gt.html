@@ -1,0 +1,50 @@
+<h1>AW - GT</h1>
+
+<!-- Google tag (gtag.js) -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=GT-K4C578Q"
+></script>
+<script>
+  window.dataLayer ||= [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+</script>
+
+<script>
+  function init(enhanced = false) {
+    gtag("js", new Date());
+
+    if (enhanced) {
+      gtag("config", "GT-K4C578Q", { allow_enhanced_conversions: true });
+    } else {
+      gtag("config", "GT-K4C578Q");
+    }
+  }
+
+  function user(enhanced = false) {
+    const data = {
+      email: "test@email.com",
+      first_name: "test first name",
+      last_name: "testnamelast",
+      phone_number: "+910000099999",
+    };
+
+    if (enhanced) {
+      window.enhanced_conversion_data = data;
+    } else {
+      gtag("set", "user_data", data);
+    }
+  }
+
+  function conversion() {
+    gtag("event", "conversion");
+  }
+
+  function conversionSendTo() {
+    gtag("event", "conversion", {
+      send_to: "AW-11335564912/LRZ3CPCQn-EYEPD8m50q",
+    });
+  }
+</script>

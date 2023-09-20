@@ -1,0 +1,61 @@
+<body>
+  <h1>TEST</h1>
+
+  <script>
+    function load(tagId) {
+      if (!tagId) {
+        return [
+          ["AW-11335564912", "GT-K4C578Q"],
+          ["G-V7RGQBMB9M", "GT-WVXJJZK"],
+        ];
+      }
+
+      window.tagId = tagId;
+
+      const script = document.createElement("script");
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${window.tagId}`;
+      document.body.appendChild(script);
+    }
+
+    function init(enhanced = false) {
+      window.dataLayer ||= [];
+
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+
+      if (enhanced) {
+        gtag("config", window.tagId, { allow_enhanced_conversions: true });
+      } else {
+        gtag("config", window.tagId);
+      }
+    }
+
+    function user(enhanced = false) {
+      const data = {
+        email: "test@email.com",
+        first_name: "test first name",
+        last_name: "testnamelast",
+        phone_number: "+910000099999",
+      };
+
+      if (enhanced) {
+        window.enhanced_conversion_data = data;
+      } else {
+        gtag("set", "user_data", data);
+      }
+    }
+
+    function conversion() {
+      gtag("event", "conversion");
+    }
+
+    function conversionSendTo(tagId = "AW-11335564912") {
+      gtag("event", "conversion", {
+        send_to: `${tagId}/LRZ3CPCQn-EYEPD8m50q`,
+      });
+    }
+  </script>
+</body>
