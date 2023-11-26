@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="./style.css" />
+
+<body>
+  <h1>my website <span id="gtag"></span></h1>
+
+  <div id="load" class="section">
+    <button onclick="load('GT-5RF6J35')">GT-5RF6J35 (aw)</button>
+    <button onclick="load('GT-KFNRKG4')">GT-KFNRKG4 (ga)</button>
+    <button onclick="load('G-VYH7GEVC0K')">G-VYH7GEVC0K (ga)</button>
+  </div>
+
+  <div id="test" class="section hidden">
+    <button onclick="foobar()">foobar</button>
+    <button onclick="conversion()">conversion</button>
+    <button onclick="conversionAds()">conversion (ads)</button>
+  </div>
+</body>
+
+<!-- Google Tag Manager -->
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-MZQVC6Q6");
+</script>
+
+<!-- Google tag -->
+<script>
+  window.dataLayer ||= [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  function load(tagId) {
+    const script = document.createElement("script");
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${tagId}`;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      gtag("js", new Date());
+      gtag("config", tagId);
+
+      updateUi(tagId);
+    };
+  }
+
+  function updateUi(tagId) {
+    document.getElementById("gtag").textContent = tagId;
+
+    document.getElementById("load").classList.add("hidden");
+    document.getElementById("test").classList.remove("hidden");
+  }
+
+  /*
+    aw/test-ana
+      GT-5RF6J35
+    ga/test-ana
+      G-VYH7GEVC0K
+      GT-KFNRKG4
+  */
+</script>
+
+<!-- test -->
+<script src="./test.js"></script>
